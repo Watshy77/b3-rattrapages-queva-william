@@ -24,4 +24,22 @@ describe('validateEnv', () => {
         const schema = [{ name: 'BOOL_VAR', required: true, type: 'boolean' }];
         expect(() => validateEnv(schema)).to.throw('Env var BOOL_VAR is not a valid boolean');
     });
+
+    it('should throw an error if the regex does not match', () => {
+        process.env.TEST_VAR = '123';
+        const schema = [{ name: 'TEST_VAR', required: true, type: 'string', regex: '^\\d{4}$' }];
+        expect(() => validateEnv(schema)).to.throw('Env var TEST_VAR does not match pattern ^\\\\d{4}$');
+    });
+
+    it('should not throw an error for valid variables', () => {
+        process.env.NUM_VAR = '42';
+        process.env.BOOL_VAR = 'true';
+        process.env.TEST_VAR = 'abcd';
+        const schema = [
+            { name: 'NUM_VAR', required: true, type: 'number' },
+            { name: 'BOOL_VAR', required: true, type: 'boolean' },
+            { name: 'TEST_VAR', required: true, type: 'string', regex: '^[a-z]+$' }
+        ];
+        expect(() => validateEnv(schema)).to.not.throw();
+    });
 });
