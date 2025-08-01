@@ -16,7 +16,11 @@ cd 02-Architecture-open-source-creation-et-publication-d-une-librairie/
 
 npm link
 
+npm install -g dotenv-cli
+
 # For production (global install)
+npm install -g dotenv-cli
+
 npm install -g @watshy/env-validator
 ```
 
@@ -40,7 +44,7 @@ npm install -g @watshy/env-validator
 
 2. **Run the validation** from any directory:
     ```bash
-    env-validator ./schema.json
+    dotenv -- env-validator ./schema.json
     ```
 
 -   Exit code `0` if all variables are present and valid.
