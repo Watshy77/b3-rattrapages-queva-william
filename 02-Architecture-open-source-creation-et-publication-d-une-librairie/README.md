@@ -17,7 +17,7 @@ cd 02-Architecture-open-source-creation-et-publication-d-une-librairie/
 npm link
 
 # For production (global install)
-npm install -g env-validator
+npm install -g @watshy/env-validator
 ```
 
 ## Usage
