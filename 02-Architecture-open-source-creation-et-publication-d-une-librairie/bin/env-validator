@@ -1,0 +1,41 @@
+const fs = require('fs');
+const path = require('path');
+const { validateEnv } = require('../src/index');
+
+function printUsage() {
+    console.log('Usage: env-validator <schema-path>');
+    console.log('  <schema-path> : path to your schema JSON file');
+}
+
+async function main() {
+    const args = process.argv.slice(2);
+    if (args.length !== 1) {
+        printUsage();
+        process.exit(1);
+    }
+
+    const schemaFile = path.resolve(process.cwd(), args[0]);
+    if (!fs.existsSync(schemaFile)) {
+        console.error(`Error: schema file not found at ${schemaFile}`);
+        process.exit(1);
+    }
+
+    let schema;
+    try {
+        schema = JSON.parse(fs.readFileSync(schemaFile, 'utf-8'));
+    } catch (err) {
+        console.error(`Error: Unable to read or parse JSON file (${err.message})`);
+        process.exit(1);
+    }
+
+    try {
+        validateEnv(schema);
+        console.log('✅ env-validator: all environment variables are valid');
+        process.exit(0);
+    } catch (err) {
+        console.error(`❌ env-validator: ${err.message}`);
+        process.exit(1);
+    }
+}
+
+main();
