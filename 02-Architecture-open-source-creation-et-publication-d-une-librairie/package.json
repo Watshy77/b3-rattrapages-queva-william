@@ -1,6 +1,6 @@
 {
   "name": "@watshy/env-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validate environment variables against a JSON schema",
   "main": "src/index.js",
   "bin": {
