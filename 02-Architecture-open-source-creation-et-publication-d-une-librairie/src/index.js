@@ -28,7 +28,10 @@ function validateEnv(schema) {
             if (def.regex) {
                 const re = new RegExp(def.regex);
                 if (!re.test(val)) {
-                    throw new Error(`Env var ${def.name} does not match pattern ${def.regex}`);
+                    const displayPattern = def.regex.replace(/\\/g, '\\\\');
+                    throw new Error(
+                        `Env var ${def.name} does not match pattern ${displayPattern}`
+                    );
                 }
             }
         }
