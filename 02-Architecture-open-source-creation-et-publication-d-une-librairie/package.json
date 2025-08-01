@@ -1,5 +1,5 @@
 {
-  "name": "env-validator",
+  "name": "@watshy/env-validator",
   "version": "1.0.0",
   "description": "Validate environment variables against a JSON schema",
   "main": "src/index.js",
