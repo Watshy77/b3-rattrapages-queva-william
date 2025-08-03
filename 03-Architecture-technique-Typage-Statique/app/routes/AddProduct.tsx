@@ -51,7 +51,7 @@ export default function AddProduct() {
 		};
 
 		addProduct(product);
-		navigate("/products");
+		navigate("/");
 	}
 
 	return (
