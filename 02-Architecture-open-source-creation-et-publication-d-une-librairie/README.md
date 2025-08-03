@@ -55,3 +55,7 @@ npm install -g @watshy/env-validator
 -   Project inspiration: [simple-env-verify](https://www.npmjs.com/package/simple-env-verify)
 -   Guide to create and publish NPM packages: [Creating and publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
 -   NPM CLI docs on `bin` configuration: [npm CLI docs: bin](https://docs.npmjs.com/cli/v11/configuring-npm/package-json#bin)
+
+## Video
+
+-   https://www.loom.com/share/69c9ef4557f143069b10982a37df3a14?sid=2da6e35a-0ce7-4e3a-8522-8cfc3a53e9c8
