@@ -77,130 +77,168 @@ export default function EditProduct() {
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			className="space-y-4 max-w-md mx-auto p-4"
-		>
-			<h1 className="text-2xl font-bold">Modifier le produit</h1>
-
-			<div>
-				<label>Nom *</label>
-				<input
-					type="text"
-					value={form.name}
-					required
-					onChange={(e) => handleChange("name", e.target.value)}
-				/>
-			</div>
-
-			<div>
-				<label>Description *</label>
-				<textarea
-					value={form.description}
-					required
-					onChange={(e) =>
-						handleChange("description", e.target.value)
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Prix (€) *</label>
-				<input
-					type="number"
-					min="0"
-					step="0.01"
-					value={form.price}
-					required
-					onChange={(e) =>
-						handleChange("price", parseFloat(e.target.value))
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Quantité *</label>
-				<input
-					type="number"
-					min="0"
-					step="1"
-					value={form.quantity}
-					required
-					onChange={(e) =>
-						handleChange("quantity", parseInt(e.target.value))
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Note (0–5) *</label>
-				<input
-					type="number"
-					min="0"
-					max="5"
-					step="0.1"
-					value={form.rating}
-					required
-					onChange={(e) =>
-						handleChange("rating", parseFloat(e.target.value))
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Disponible</label>
-				<input
-					type="checkbox"
-					checked={form.available}
-					onChange={(e) =>
-						handleChange("available", e.target.checked)
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Illustration (URL) *</label>
-				<input
-					type="url"
-					value={form.imageUrl}
-					required
-					onChange={(e) => handleChange("imageUrl", e.target.value)}
-				/>
-			</div>
-
-			<div>
-				<label>Date de péremption *</label>
-				<input
-					type="date"
-					value={
-						form.expiryDate
-							? form.expiryDate.toISOString().split("T")[0]
-							: ""
-					}
-					required
-					onChange={(e) =>
-						handleChange("expiryDate", new Date(e.target.value))
-					}
-				/>
-			</div>
-
-			<div>
-				<label>Date d’ajout *</label>
-				<input
-					type="date"
-					value={
-						form.addedDate
-							? form.addedDate.toISOString().split("T")[0]
-							: ""
-					}
-					required
-					onChange={(e) =>
-						handleChange("addedDate", new Date(e.target.value))
-					}
-				/>
-			</div>
-
-			<button type="submit">Mettre à jour</button>
-		</form>
+		<div className="max-w-md mx-auto p-6 text-black bg-white shadow rounded">
+			<h1 className="text-2xl font-bold mb-4">Modifier un produit</h1>
+			<form onSubmit={handleSubmit} className="space-y-4">
+				<div>
+					<label className="block font-medium mb-1">Nom *</label>
+					<input
+						type="text"
+						value={form.name}
+						required
+						className="w-full border px-3 py-2 rounded"
+						onChange={(e) => handleChange("name", e.target.value)}
+					/>
+				</div>
+				<div>
+					<label className="block font-medium mb-1">
+						Description *
+					</label>
+					<textarea
+						value={form.description}
+						required
+						className="w-full border px-3 py-2 rounded"
+						onChange={(e) =>
+							handleChange("description", e.target.value)
+						}
+					/>
+				</div>
+				<div className="grid grid-cols-2 gap-4">
+					<div>
+						<label className="block font-medium mb-1">
+							Prix (€) *
+						</label>
+						<input
+							type="number"
+							min="0"
+							step="0.01"
+							value={form.price}
+							required
+							className="w-full border px-3 py-2 rounded"
+							onChange={(e) =>
+								handleChange(
+									"price",
+									parseFloat(e.target.value)
+								)
+							}
+						/>
+					</div>
+					<div>
+						<label className="block font-medium mb-1">
+							Quantité *
+						</label>
+						<input
+							type="number"
+							min="0"
+							step="1"
+							value={form.quantity}
+							required
+							className="w-full border px-3 py-2 rounded"
+							onChange={(e) =>
+								handleChange(
+									"quantity",
+									parseInt(e.target.value)
+								)
+							}
+						/>
+					</div>
+				</div>
+				<div className="grid grid-cols-2 gap-4">
+					<div>
+						<label className="block font-medium mb-1">
+							Note (0–5) *
+						</label>
+						<input
+							type="number"
+							min="0"
+							max="5"
+							step="0.1"
+							value={form.rating}
+							required
+							className="w-full border px-3 py-2 rounded"
+							onChange={(e) =>
+								handleChange(
+									"rating",
+									parseFloat(e.target.value)
+								)
+							}
+						/>
+					</div>
+					<div className="flex items-center mt-6">
+						<input
+							type="checkbox"
+							checked={form.available}
+							className="mr-2"
+							onChange={(e) =>
+								handleChange("available", e.target.checked)
+							}
+						/>
+						<label>Disponible</label>
+					</div>
+				</div>
+				<div>
+					<label className="block font-medium mb-1">
+						Illustration (URL) *
+					</label>
+					<input
+						type="url"
+						value={form.imageUrl}
+						required
+						className="w-full border px-3 py-2 rounded"
+						onChange={(e) =>
+							handleChange("imageUrl", e.target.value)
+						}
+					/>
+				</div>
+				<div className="grid grid-cols-2 gap-4">
+					<div>
+						<label className="block font-medium mb-1">
+							Date de péremption *
+						</label>
+						<input
+							type="date"
+							value={
+								form.expiryDate?.toISOString().split("T")[0] ||
+								""
+							}
+							required
+							className="w-full border px-3 py-2 rounded"
+							onChange={(e) =>
+								handleChange(
+									"expiryDate",
+									new Date(e.target.value)
+								)
+							}
+						/>
+					</div>
+					<div>
+						<label className="block font-medium mb-1">
+							Date d’ajout *
+						</label>
+						<input
+							type="date"
+							value={
+								form.addedDate?.toISOString().split("T")[0] ||
+								""
+							}
+							required
+							className="w-full border px-3 py-2 rounded"
+							onChange={(e) =>
+								handleChange(
+									"addedDate",
+									new Date(e.target.value)
+								)
+							}
+						/>
+					</div>
+				</div>
+				<button
+					type="submit"
+					className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
+				>
+					Mettre à jour
+				</button>
+			</form>
+		</div>
 	);
 }
