@@ -52,7 +52,7 @@ Le dispositif reposera sur un microcontrôleur ESP32 avec une connexion Wi-Fi.
 
 ---
 
-## 3. Schéma de cablage
+## 4. Schéma de cablage
 
 ```mermaid
 graph LR
