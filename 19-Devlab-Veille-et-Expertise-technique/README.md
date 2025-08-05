@@ -121,3 +121,12 @@ void loop() {
   delay(1000);
 }
 ```
+
+## 6. Ressources et inspiration
+
+-   [Mesurer des distances avec le capteur ultrason HC-SR04 avec un ESP32 en code Arduino](https://www.upesy.fr/blogs/tutorials/hc-sr04-ultrasonic-sensor-on-esp32-with-arduino-code-tutorial?srsltid=AfmBOorQDBUHgukIVG6idZdbZMXrs8J92dw5KOfY_D35Uq47bRF5c0qr)
+-   [Organisation des informations avec des tables](https://docs.github.com/fr/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
+-   [Datasheet ESP32](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
+-   [Datasheet HC-SR04](https://www.robot-maker.com/shop/img/cms/datasheet-capteur-ultrasons-hc-sr04.pdf)
+-   [Création de diagrammes sur GitHub avec mermaid](https://docs.github.com/fr/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+-   [Documentation Mermaid](https://mermaid.js.org/)
