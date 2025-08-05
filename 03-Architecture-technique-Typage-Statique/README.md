@@ -86,6 +86,7 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 
 - [react-router](https://reactrouter.com/start/modes#framework)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite)
+- [Réalisation du README](https://readme.so/fr)
 
 ## Video
 
