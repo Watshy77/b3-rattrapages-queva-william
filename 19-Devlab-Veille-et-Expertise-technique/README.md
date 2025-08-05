@@ -51,3 +51,30 @@ Le dispositif reposera sur un microcontrôleur ESP32 avec une connexion Wi-Fi.
     L’ESP32 peut tirer au maximum jusqu'à 240mA, et le HC-SR04 consomme 15 mA. Une alimentation 5V / 2A est suffisant et garantie une marge de sécurité pour des ajouts futurs.
 
 ---
+
+## 3. Schéma de cablage
+
+```mermaid
+graph LR
+  V5([5 V])
+  V5 --> |VCC| HC(HC-SR04)
+  V5 --> |Alim| AMS(AMS1117)
+  AMS --> |3,3 V| VIN(ESP32 VIN)
+  GND([GND])
+  GND --> |GND| ESP32G(ESP32 GND)
+  GND --> |GND| HC_G(HC-SR04 GND)
+
+  subgraph TRIG
+    ESP32T([ESP32 GPIO5])
+    HC_T([HC-SR04 TRIG])
+    ESP32T --> |TRIG| HC_T
+  end
+
+  subgraph ECHO
+    HC_E([HC-SR04 ECHO])
+    R1([R1: 10 kΩ])
+    R2([R2: 10 kΩ])
+    ESP32E([ESP32 GPIO18])
+    HC_E --> R1 --> R2 --> ESP32E
+  end
+```
